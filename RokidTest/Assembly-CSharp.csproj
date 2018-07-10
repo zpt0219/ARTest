@@ -154,10 +154,9 @@
     <Compile Include="Assets\3rdParty\UniWebView\Script\UniWebViewNativeListener.cs" />
     <Compile Include="Assets\3rdParty\UniWebView\Script\UniWebViewToolbarPosition.cs" />
     <Compile Include="Assets\3rdParty\UniWebView\Script\UniWebViewTransitionEdge.cs" />
-    <Compile Include="Assets\Code\Common\DemoCharacterController.cs" />
+    <Compile Include="Assets\Code\Common\CameraController.cs" />
     <Compile Include="Assets\Code\Common\RayCastSensor.cs" />
     <Compile Include="Assets\Code\Common\ResourceManager.cs" />
-    <Compile Include="Assets\Code\Common\SliderRatioCalc.cs" />
     <Compile Include="Assets\Code\Common\UIRayCaster.cs" />
     <Compile Include="Assets\Code\RkdAlbum\AlbumPlayer.cs" />
     <Compile Include="Assets\Code\RkdAlbum\SingleImageAgent.cs" />
