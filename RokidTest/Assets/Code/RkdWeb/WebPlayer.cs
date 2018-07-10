@@ -88,7 +88,7 @@ namespace Rokid
 			m_browserBackground.gameObject.SetActive(true);
 			m_BrowserGUI.gameObject.SetActive(true);
 			m_scrollView.gameObject.SetActive(false);
-			//m_BrowserGUI.GetComponent<ZenFulcrum.EmbeddedBrowser.Browser>().Url = agent.m_article.url;
+			m_BrowserGUI.GetComponent<ZenFulcrum.EmbeddedBrowser.Browser>().Url = agent.m_article.url;
 		}
 
 		public void OnDetailNewsCancel()
@@ -102,7 +102,7 @@ namespace Rokid
 		{
 			if(m_BrowserGUI.gameObject.activeSelf)
 			{
-
+				m_BrowserGUI.gameObject.GetComponent<ZenFulcrum.EmbeddedBrowser.PointerUIGUI>().m_mouseScrollDelta = new Vector2(0, 0.3f * Time.deltaTime);
 			}
 			else
 			{
@@ -115,13 +115,18 @@ namespace Rokid
 		{
 			if (m_BrowserGUI.gameObject.activeSelf)
 			{
-
+				m_BrowserGUI.gameObject.GetComponent<ZenFulcrum.EmbeddedBrowser.PointerUIGUI>().m_mouseScrollDelta = new Vector2(0, -0.3f * Time.deltaTime);
 			}
 			else
 			{
 				var rt = m_scrollViewContent.GetComponent<RectTransform>();
 				rt.anchoredPosition = new Vector2(rt.anchoredPosition.x, rt.anchoredPosition.y + Time.deltaTime * 150);
 			}
+		}
+
+		public void OnFocusExit()
+		{
+			m_BrowserGUI.gameObject.GetComponent<ZenFulcrum.EmbeddedBrowser.PointerUIGUI>().m_mouseScrollDelta = new Vector2(0, 0);
 		}
 
 	}

@@ -525,12 +525,6 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224088771544996114, guid: 790ac6a31ad5beb4eb48d0e61207182a,
     type: 2}
   m_PrefabInternal: {fileID: 820023680}
---- !u!114 &448690154 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114486611868786752, guid: 29f7a2cef30cdbe47ad01ad28db77bd2,
-    type: 2}
-  m_PrefabInternal: {fileID: 1462254898}
-  m_Script: {fileID: 11500000, guid: ac87419d3db7a6e4c92907c653665e67, type: 3}
 --- !u!1 &599706492
 GameObject:
   m_ObjectHideFlags: 0
@@ -788,58 +782,6 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224366783907240692, guid: 29f7a2cef30cdbe47ad01ad28db77bd2,
     type: 2}
   m_PrefabInternal: {fileID: 1462254898}
---- !u!1 &925467949 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1153181977587358, guid: 29f7a2cef30cdbe47ad01ad28db77bd2,
-    type: 2}
-  m_PrefabInternal: {fileID: 1462254898}
---- !u!114 &925467950
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 925467949}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb58cc6a4fee4a34096033b6921d1b8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_hoverHandler:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  m_outsideHandler:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  m_onEnterHandler:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  m_onExitHandler:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  m_hold2SecondsHandler:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 448690154}
-        m_MethodName: OnDetailNewsCancel
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!1 &938464822
 GameObject:
   m_ObjectHideFlags: 0
@@ -1328,38 +1270,12 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 114521713798475472, guid: 29f7a2cef30cdbe47ad01ad28db77bd2,
+    - target: {fileID: 114451717958741298, guid: 29f7a2cef30cdbe47ad01ad28db77bd2,
         type: 2}
-      propertyPath: m_hoverHandler.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 448690154}
-    - target: {fileID: 114521713798475472, guid: 29f7a2cef30cdbe47ad01ad28db77bd2,
-        type: 2}
-      propertyPath: m_hoverHandler.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnScrollUp
+      propertyPath: m_RaycastTarget
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114521713798475472, guid: 29f7a2cef30cdbe47ad01ad28db77bd2,
-        type: 2}
-      propertyPath: m_hoverHandler.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 114130750418137498, guid: 29f7a2cef30cdbe47ad01ad28db77bd2,
-        type: 2}
-      propertyPath: m_hoverHandler.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 448690154}
-    - target: {fileID: 114130750418137498, guid: 29f7a2cef30cdbe47ad01ad28db77bd2,
-        type: 2}
-      propertyPath: m_hoverHandler.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnScrollDown
-      objectReference: {fileID: 0}
-    - target: {fileID: 114130750418137498, guid: 29f7a2cef30cdbe47ad01ad28db77bd2,
-        type: 2}
-      propertyPath: m_hoverHandler.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114248149331773474, guid: 29f7a2cef30cdbe47ad01ad28db77bd2, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 29f7a2cef30cdbe47ad01ad28db77bd2, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1512361486

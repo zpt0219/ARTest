@@ -3,6 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2017
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RokidTest", "RokidTest.csproj", "{9AC5159F-1AD9-0AE4-4EB2-B6AC413BF69E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RokidTest", "RokidTest.csproj", "{9AC5159F-1AD9-0AE4-4EB2-B6AC413BF69E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RokidTest.Editor", "RokidTest.Editor.csproj", "{3EC002D3-E504-392F-E538-DDCEA9B3C35C}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RokidTest.Editor", "RokidTest.Editor.csproj", "{3EC002D3-E504-392F-E538-DDCEA9B3C35C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RokidTest.Editor", "RokidTest.Editor.csproj", "{3EC002D3-E504-392F-E538-DDCEA9B3C35C}"
@@ -19,6 +23,14 @@ Global
 		{9AC5159F-1AD9-0AE4-4EB2-B6AC413BF69E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9AC5159F-1AD9-0AE4-4EB2-B6AC413BF69E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9AC5159F-1AD9-0AE4-4EB2-B6AC413BF69E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AC5159F-1AD9-0AE4-4EB2-B6AC413BF69E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AC5159F-1AD9-0AE4-4EB2-B6AC413BF69E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AC5159F-1AD9-0AE4-4EB2-B6AC413BF69E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AC5159F-1AD9-0AE4-4EB2-B6AC413BF69E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EC002D3-E504-392F-E538-DDCEA9B3C35C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EC002D3-E504-392F-E538-DDCEA9B3C35C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EC002D3-E504-392F-E538-DDCEA9B3C35C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EC002D3-E504-392F-E538-DDCEA9B3C35C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3EC002D3-E504-392F-E538-DDCEA9B3C35C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3EC002D3-E504-392F-E538-DDCEA9B3C35C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3EC002D3-E504-392F-E538-DDCEA9B3C35C}.Release|Any CPU.ActiveCfg = Release|Any CPU

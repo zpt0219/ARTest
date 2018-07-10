@@ -345,6 +345,10 @@
       <Project>{9AC5159F-1AD9-0AE4-4EB2-B6AC413BF69E}</Project>
       <Name>RokidTest</Name>
     </ProjectReference>
+    <ProjectReference Include="RokidTest.csproj">
+      <Project>{9AC5159F-1AD9-0AE4-4EB2-B6AC413BF69E}</Project>
+      <Name>RokidTest</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="C:\Users\Administrator\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.standardevents@1.0.13\Editor\Importer.cs" />
@@ -356,6 +360,19 @@
     <None Include="Assets\3rdParty\LightShaft\YoutubeAPI\Readme.txt" />
     <None Include="Assets\3rdParty\LightShaft\YoutubeAPI\link.xml" />
     <None Include="Assets\3rdParty\UniWebView\README.txt" />
+    <None Include="Assets\3rdParty\ZFBrowser\Changelog.txt" />
+    <None Include="Assets\3rdParty\ZFBrowser\Materials\EmulatedMipmap\MipSample.cginc" />
+    <None Include="Assets\3rdParty\ZFBrowser\Materials\EmulatedMipmap\Readme.txt" />
+    <None Include="Assets\3rdParty\ZFBrowser\Materials\EmulatedMipmap\Standard.shader" />
+    <None Include="Assets\3rdParty\ZFBrowser\Materials\EmulatedMipmap\Transparent.shader" />
+    <None Include="Assets\3rdParty\ZFBrowser\Materials\EmulatedMipmap\Unlit.shader" />
+    <None Include="Assets\3rdParty\ZFBrowser\Materials\EmulatedMipmap\UnlitColored.shader" />
+    <None Include="Assets\3rdParty\ZFBrowser\Materials\EmulatedMipmap\UnlitOpaque.shader" />
+    <None Include="Assets\3rdParty\ZFBrowser\Materials\UnlitCursor.shader" />
+    <None Include="Assets\3rdParty\ZFBrowser\Plugins\versions.txt" />
+    <None Include="Assets\3rdParty\ZFBrowser\Scripts\Editor\ZFBrowser-Editor.asmdef" />
+    <None Include="Assets\3rdParty\ZFBrowser\Scripts\ZFBrowser.asmdef" />
+    <None Include="Assets\3rdParty\ZFBrowser\ThirdPartyNotices.txt" />
     <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
     <None Include="Assets\Resources\Model\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
     <None Include="Assets\Resources\Model\Characters\RollerBall\RollerBallGuidelines.txt" />
