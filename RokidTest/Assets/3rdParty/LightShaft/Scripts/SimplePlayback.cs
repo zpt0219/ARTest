@@ -158,11 +158,13 @@ public class SimplePlayback : MonoBehaviour
 
     public void PlayerPause()
     {
+		Debug.Log("----------PlayerPause");
         unityVideoPlayer.Pause();
     }
 
     public void PlayerPlay()
     {
+		Debug.Log("----------PlayerPlay");
         unityVideoPlayer.Play();
     }
 

@@ -10,7 +10,7 @@ namespace Rokid
 		public List<SingleImageAgent> m_imageAgentList = new List<SingleImageAgent>();
 
 		[System.NonSerialized]
-		public Transform m_background, m_title, m_scrollViewContent, m_singleView, m_singleViewImage;
+		public Transform m_background, m_title, m_scrollView, m_scrollViewContent, m_singleView, m_singleViewImage;
 
 		private Slider m_imageScaleSlider = null;
 
@@ -20,6 +20,7 @@ namespace Rokid
 		{
 			m_background = transform.Find("Background");
 			m_title = transform.Find("Title");
+			m_scrollView = transform.Find("ScrollView");
 			m_scrollViewContent = transform.Find("ScrollView/Viewport/Content");
 			m_singleView = transform.Find("SingleView");
 			m_singleViewImage = m_singleView.Find("Mask/Image");
@@ -65,14 +66,16 @@ namespace Rokid
 
 		public void OnImageAgentClicked(SingleImageAgent agent)
 		{
+			m_scrollView.gameObject.SetActive(false);
 			m_singleView.gameObject.SetActive(true);
 			m_singleViewImage.GetComponent<RawImage>().texture = agent.m_texture;
 			m_imageScaleSlider.value = 0;
 		}
 
-		public void OnSingleViewIamgeClicked()
+		public void CloseSingleImageView()
 		{
 			m_singleView.gameObject.SetActive(false);
+			m_scrollView.gameObject.SetActive(true);
 		}
 
 		public void OnSingleViewSliderChanged()
@@ -81,6 +84,34 @@ namespace Rokid
 			RectTransform rt = m_singleViewImage.GetComponent<RectTransform>();
 			rt.sizeDelta = new Vector2(256 * ratio, 256 * ratio);
 		}
+
+		public void OnSingleViewScaleUp()
+		{
+			m_imageScaleSlider.value += Time.deltaTime * 0.2f;
+			OnSingleViewSliderChanged();
+		}
+
+		public void OnSingleViewScaleDown()
+		{
+			m_imageScaleSlider.value -= Time.deltaTime * 0.2f;
+			OnSingleViewSliderChanged();
+		}
+
+		public void OnScrollViewRight()
+		{
+			var rt = m_scrollViewContent.GetComponent<RectTransform>();
+			rt.anchoredPosition = new Vector2(rt.anchoredPosition.x - Time.deltaTime * 300, rt.anchoredPosition.y);
+		}
+
+		public void OnScrollViewLeft()
+		{
+			var rt = m_scrollViewContent.GetComponent<RectTransform>();
+			rt.anchoredPosition = new Vector2(rt.anchoredPosition.x + Time.deltaTime * 300, rt.anchoredPosition.y);
+		}
+
+
+
+
 	}
 }
 

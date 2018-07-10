@@ -12,6 +12,7 @@ namespace Rokid
 		private Vector3 m_moveVec = Vector3.zero;
 
 		private Transform m_cameraPivot = null;
+		private Camera m_camera = null;
 
 		private Vector3 lastMousePosition = Vector3.zero;
 
@@ -23,6 +24,7 @@ namespace Rokid
 		private void Awake()
 		{
 			m_cameraPivot = Camera.main.transform.parent;
+			m_camera = Camera.main;
 			m_animator = GetComponentInChildren<Animator>();
 		}
 
@@ -126,12 +128,20 @@ namespace Rokid
 
 		private void LateUpdate()
 		{
-            UpdateCameraByGravity();
-			//Vector3 dir = Input.mousePosition - lastMousePosition;
-			//lastMousePosition = Input.mousePosition;
-            //UpdateCamera(dir.x, -dir.y);
+			//UpdateCameraByGravity();
+			Vector3 dir = Input.mousePosition - lastMousePosition;
+			lastMousePosition = Input.mousePosition;
+            UpdateCamera(dir.x, -dir.y);
 			
 			SetAnimation(nextAnimationEnum);
+
+
+			//Ray ray = m_camera.ScreenPointToRay(new Vector3(0.5f, 0.5f, 0));
+			//RaycastHit hit;
+			//if(Physics.Raycast(ray,out hit,10000,0x7fffffff))
+			//{
+			//	Debug.Log(hit.collider.gameObject.name);
+			//}
 		}
 
 		private bool RotateToDirection(Vector2 direction, bool atOnce = false, float deltaTime = 0.033f)
