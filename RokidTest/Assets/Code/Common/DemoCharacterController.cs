@@ -4,57 +4,57 @@ using UnityEngine;
 
 namespace Rokid
 {
-	public class DemoCharacterController : MonoBehaviour
-	{
-		private float m_moveSpeed = 3f;
-		private float m_rotateSpeed = 180f;
+    public class DemoCharacterController : MonoBehaviour
+    {
+        private float m_moveSpeed = 3f;
+        private float m_rotateSpeed = 180f;
 
-		private Vector3 m_moveVec = Vector3.zero;
+        private Vector3 m_moveVec = Vector3.zero;
 
-		private Transform m_cameraPivot = null;
-		private Camera m_camera = null;
+        private Transform m_cameraPivot = null;
+        private Camera m_camera = null;
 
-		private Vector3 lastMousePosition = Vector3.zero;
+        private Vector3 lastMousePosition = Vector3.zero;
 
-		//Since I use capsule to represent the character, there is no need to use the animator
-		private Animator m_animator = null;
+        //Since I use capsule to represent the character, there is no need to use the animator
+        private Animator m_animator = null;
 
-		public bool m_lockCamera = false;
+        public bool m_lockCamera = false;
 
-		private void Awake()
-		{
-			m_cameraPivot = Camera.main.transform.parent;
-			m_camera = Camera.main;
-			m_animator = GetComponentInChildren<Animator>();
-		}
+        private void Awake()
+        {
+            m_cameraPivot = Camera.main.transform.parent;
+            m_camera = Camera.main;
+            m_animator = GetComponentInChildren<Animator>();
+        }
 
-		enum AnimationEnum
-		{
-			None=0,
-			Idle,
-			Run,
-			Jump,
-		}
-		private AnimationEnum currentAnimationEnum = AnimationEnum.None;
-		private AnimationEnum nextAnimationEnum = AnimationEnum.None;
+        enum AnimationEnum
+        {
+            None = 0,
+            Idle,
+            Run,
+            Jump,
+        }
+        private AnimationEnum currentAnimationEnum = AnimationEnum.None;
+        private AnimationEnum nextAnimationEnum = AnimationEnum.None;
 
-		// Use this for initialization
-		void Start()
-		{
-			//GetComponent<CharacterController>().enabled = false;
-			//RaycastHit hit;
-			//Ray ray = new Ray(transform.position + 1000 * Vector3.up, Vector3.down);
-			//if (Physics.Raycast(ray, out hit, 10000, 0x7fffffff))
-			//{
-			//	transform.position = hit.point;
-			//}
-			//GetComponent<CharacterController>().enabled = true;
-		}
+        // Use this for initialization
+        void Start()
+        {
+            //GetComponent<CharacterController>().enabled = false;
+            //RaycastHit hit;
+            //Ray ray = new Ray(transform.position + 1000 * Vector3.up, Vector3.down);
+            //if (Physics.Raycast(ray, out hit, 10000, 0x7fffffff))
+            //{
+            //	transform.position = hit.point;
+            //}
+            //GetComponent<CharacterController>().enabled = true;
+        }
 
-		// Update is called once per frame
+        // Update is called once per frame
 
-		private void OnGUI()
-		{
+        private void OnGUI()
+        {
             GUI.Label(new Rect(10, 10, 100, 30), Input.acceleration.x.ToString());
             GUI.Label(new Rect(10, 40, 100, 30), Input.acceleration.y.ToString());
             GUI.Label(new Rect(10, 70, 100, 30), Input.acceleration.z.ToString());
@@ -62,78 +62,81 @@ namespace Rokid
             GUI.Label(new Rect(10, 130, 100, 30), m_cameraPivot.localEulerAngles.y.ToString());
 
 
-		}
+        }
 
-		void Update()
-		{
-			//nextAnimationEnum = AnimationEnum.Idle;
+        void Update()
+        {
+            //nextAnimationEnum = AnimationEnum.Idle;
 
-			//Vector3 horizontalMove = Vector3.zero;
-			//if(Input.GetKey(KeyCode.W))
-			//{
-			//	Vector3 v = Camera.main.transform.forward;
-			//	v.y = 0;
-			//	v.Normalize();
-			//	horizontalMove += v;
-			//}
-			//if (Input.GetKey(KeyCode.S))
-			//{
-			//	Vector3 v = -Camera.main.transform.forward;
-			//	v.y = 0;
-			//	v.Normalize();
-			//	horizontalMove += v;
-			//}
-			//if (Input.GetKey(KeyCode.A))
-			//{
-			//	Vector3 v = -Camera.main.transform.right;
-			//	v.y = 0;
-			//	v.Normalize();
-			//	horizontalMove += v;
-			//}
-			//if (Input.GetKey(KeyCode.D))
-			//{
-			//	Vector3 v = Camera.main.transform.right;
-			//	v.y = 0;
-			//	v.Normalize();
-			//	horizontalMove += v;
-			//}
-			//horizontalMove.Normalize();
+            //Vector3 horizontalMove = Vector3.zero;
+            //if(Input.GetKey(KeyCode.W))
+            //{
+            //	Vector3 v = Camera.main.transform.forward;
+            //	v.y = 0;
+            //	v.Normalize();
+            //	horizontalMove += v;
+            //}
+            //if (Input.GetKey(KeyCode.S))
+            //{
+            //	Vector3 v = -Camera.main.transform.forward;
+            //	v.y = 0;
+            //	v.Normalize();
+            //	horizontalMove += v;
+            //}
+            //if (Input.GetKey(KeyCode.A))
+            //{
+            //	Vector3 v = -Camera.main.transform.right;
+            //	v.y = 0;
+            //	v.Normalize();
+            //	horizontalMove += v;
+            //}
+            //if (Input.GetKey(KeyCode.D))
+            //{
+            //	Vector3 v = Camera.main.transform.right;
+            //	v.y = 0;
+            //	v.Normalize();
+            //	horizontalMove += v;
+            //}
+            //horizontalMove.Normalize();
 
-			//if(horizontalMove.magnitude>0)
-			//{
-			//	RotateToDirection(new Vector2(horizontalMove.x, horizontalMove.z));
-			//	nextAnimationEnum = AnimationEnum.Run;
-			//}
+            //if(horizontalMove.magnitude>0)
+            //{
+            //	RotateToDirection(new Vector2(horizontalMove.x, horizontalMove.z));
+            //	nextAnimationEnum = AnimationEnum.Run;
+            //}
 
-			//CharacterController cc = GetComponent<CharacterController>();
-			//if (cc.isGrounded)
-			//{
-			//	m_moveVec = new Vector3(0, -0.1f, 0);
-			//	if (Input.GetKey(KeyCode.Space))
-			//	{
-			//		m_moveVec.y = 10f;
-			//		nextAnimationEnum = AnimationEnum.Jump;
-			//		Debug.Log("Space Pressed");
-			//	}
-			//}
-			//else
-			//{
-			//	m_moveVec += Physics.gravity * Time.fixedDeltaTime;
-			//	nextAnimationEnum = AnimationEnum.None;
-			//}
+            //CharacterController cc = GetComponent<CharacterController>();
+            //if (cc.isGrounded)
+            //{
+            //	m_moveVec = new Vector3(0, -0.1f, 0);
+            //	if (Input.GetKey(KeyCode.Space))
+            //	{
+            //		m_moveVec.y = 10f;
+            //		nextAnimationEnum = AnimationEnum.Jump;
+            //		Debug.Log("Space Pressed");
+            //	}
+            //}
+            //else
+            //{
+            //	m_moveVec += Physics.gravity * Time.fixedDeltaTime;
+            //	nextAnimationEnum = AnimationEnum.None;
+            //}
 
-			//m_moveVec = horizontalMove+new Vector3(0,m_moveVec.y,0);
-			//cc.Move(new Vector3(m_moveVec.x * m_moveSpeed, m_moveVec.y, m_moveVec.z * m_moveSpeed) * Time.deltaTime);
-		}
+            //m_moveVec = horizontalMove+new Vector3(0,m_moveVec.y,0);
+            //cc.Move(new Vector3(m_moveVec.x * m_moveSpeed, m_moveVec.y, m_moveVec.z * m_moveSpeed) * Time.deltaTime);
+        }
 
-		private void LateUpdate()
-		{
-			//UpdateCameraByGravity();
-			Vector3 dir = Input.mousePosition - lastMousePosition;
-			lastMousePosition = Input.mousePosition;
+        private void LateUpdate()
+        {
+#if UNITY_EDITOR
+            Vector3 dir = Input.mousePosition - lastMousePosition;
+            lastMousePosition = Input.mousePosition;
             UpdateCamera(dir.x, -dir.y);
-			
-			SetAnimation(nextAnimationEnum);
+#else
+            UpdateCameraByGravity();
+#endif
+
+            SetAnimation(nextAnimationEnum);
 
 
 			//Ray ray = m_camera.ScreenPointToRay(new Vector3(0.5f, 0.5f, 0));

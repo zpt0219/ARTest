@@ -16,7 +16,9 @@ namespace Rokid
 		public List<SingleNewsAgent> m_newsAgentList = new List<SingleNewsAgent>();
 
 		[System.NonSerialized]
-		public Transform m_background, m_title, m_scrollView,m_scrollViewContent, m_browserBackground, m_BrowserGUI;
+		public Transform m_background, m_title, m_scrollView,m_scrollViewContent;
+
+        UniWebView m_uniWebView = null;
 
 		private void Awake()
 		{
@@ -24,8 +26,8 @@ namespace Rokid
 			m_title = transform.Find("Title");
 			m_scrollView = transform.Find("ScrollView");
 			m_scrollViewContent = transform.Find("ScrollView/Viewport/Content");
-			m_browserBackground = transform.Find("BrowserBackground");
-			m_BrowserGUI = transform.Find("BrowserGUI");
+
+            m_uniWebView = transform.parent.Find("UniWebView").GetComponent<UniWebView>();
 		}
 
 
@@ -78,32 +80,33 @@ namespace Rokid
 					rt.anchoredPosition3D = new Vector3(20, -10 - 200 * i, 0);
 					m_newsAgentList[i].m_index.text = (i + 1).ToString();
 				}
+
+                m_uniWebView.Frame = new Rect(Screen.width / 2 - 360, Screen.height / 2 - 300, 720, 600);
+                m_uniWebView.Alpha = 0.85f;
+                m_uniWebView.gameObject.SetActive(false);
 			}
 		}
 
 
 		public void OnNewAgentClicked(SingleNewsAgent agent)
 		{
-			Debug.Log(agent.m_index.text);
-			m_browserBackground.gameObject.SetActive(true);
-			m_BrowserGUI.gameObject.SetActive(true);
-			m_scrollView.gameObject.SetActive(false);
-			m_BrowserGUI.GetComponent<ZenFulcrum.EmbeddedBrowser.Browser>().Url = agent.m_article.url;
+            if (m_uniWebView.gameObject.activeSelf) return;
+            m_uniWebView.gameObject.SetActive(true);
+            m_uniWebView.Load(agent.m_article.url);
+
 		}
 
 		public void OnDetailNewsCancel()
 		{
-			m_BrowserGUI.gameObject.SetActive(false);
-			m_browserBackground.gameObject.SetActive(false);
 			m_scrollView.gameObject.SetActive(true);
 		}
 
 		public void OnScrollUp()
 		{
-			if(m_BrowserGUI.gameObject.activeSelf)
+            if(m_uniWebView.gameObject.activeSelf)
 			{
-				m_BrowserGUI.gameObject.GetComponent<ZenFulcrum.EmbeddedBrowser.PointerUIGUI>().m_mouseScrollDelta = new Vector2(0, 0.3f * Time.deltaTime);
-			}
+                
+            }
 			else
 			{
 				var rt = m_scrollViewContent.GetComponent<RectTransform>();
@@ -113,10 +116,10 @@ namespace Rokid
 
 		public void OnScrollDown()
 		{
-			if (m_BrowserGUI.gameObject.activeSelf)
+            if (m_uniWebView.gameObject.activeSelf)
 			{
-				m_BrowserGUI.gameObject.GetComponent<ZenFulcrum.EmbeddedBrowser.PointerUIGUI>().m_mouseScrollDelta = new Vector2(0, -0.3f * Time.deltaTime);
-			}
+				
+            }
 			else
 			{
 				var rt = m_scrollViewContent.GetComponent<RectTransform>();
@@ -126,7 +129,8 @@ namespace Rokid
 
 		public void OnFocusExit()
 		{
-			m_BrowserGUI.gameObject.GetComponent<ZenFulcrum.EmbeddedBrowser.PointerUIGUI>().m_mouseScrollDelta = new Vector2(0, 0);
+            m_uniWebView.Hide();
+            m_uniWebView.gameObject.SetActive(false);
 		}
 
 	}
